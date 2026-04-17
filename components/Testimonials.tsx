@@ -39,7 +39,7 @@ const testimonials: Testimonial[] = [
     name: "Lee Shrimpton",
     role: "Director",
     company: "Comwire IT",
-    url: "https://comwire.it",
+    url: "https://comwireit.com.au",
     initials: "LS",
     image: "/images/testimonials/lee-shrimpton.jpg",
     accent: "blue",
