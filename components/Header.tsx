@@ -26,7 +26,7 @@ export default function Header() {
 
   /* ── Active-section tracking via IntersectionObserver ── */
   useEffect(() => {
-    const sectionIds = ["services", "portfolio", "about", "process", "contact"];
+    const sectionIds = ["services", "portfolio", "about", "process", "testimonials", "faq", "contact"];
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
@@ -56,16 +56,18 @@ export default function Header() {
     { href: "#portfolio", label: "Portfolio" },
     { href: "#about", label: "About" },
     { href: "#process", label: "Process" },
+    { href: "#testimonials", label: "Testimonials" },
+    { href: "#faq", label: "FAQ" },
     { href: "#contact", label: "Contact" },
   ];
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-50 border-b transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ${
           scrolled
-            ? "bg-gray-950/80 backdrop-blur-xl border-b border-white/[.06] shadow-[0_1px_12px_rgba(0,0,0,.3)]"
-            : ""
+            ? "bg-gray-950/80 backdrop-blur-xl border-white/[.06] shadow-[0_1px_12px_rgba(0,0,0,.3)]"
+            : "bg-transparent border-transparent"
         }`}
       >
         <div className="max-w-[1180px] mx-auto px-6 flex items-center justify-between h-[68px]">

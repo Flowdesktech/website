@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { faqs } from "@/components/FAQ";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -53,6 +54,15 @@ export const metadata: Metadata = {
   },
 };
 
+const clientReviews = [
+  { author: "Tom James Holub", role: "Founder", org: "FlowCrypt", url: "https://flowcrypt.com", body: "Delivered a critical part of our encryption stack on time and with the kind of attention to detail you rarely see. Clean code, thoughtful architecture, and zero hand-holding required." },
+  { author: "Lee Shrimpton", role: "Director", org: "Comwire IT", url: "https://comwire.it", body: "Exceptional full-stack engineer. Took our platform from prototype to production and handled the hard parts — auth, billing, performance — without drama." },
+  { author: "Chris Wyatt", role: "CTO", org: "Finexio", url: "https://finexio.com", body: "A true senior engineer — handled complex B2B payments work end-to-end and consistently raised the quality bar. Communicated clearly, delivered reliably, and thought several steps ahead." },
+  { author: "Stefan Hess", role: "CEO", org: "znipp.ch", url: "https://znipp.ch", body: "Top-tier engineering partner. Everything we asked for was built exactly as specified, and the suggestions along the way made the product measurably better." },
+  { author: "Abasa Phillips", role: "CEO", org: "Zilla", url: "https://zla.io", body: "Reliable, sharp, and refreshingly pragmatic. Delivered a polished product that our users actually enjoy using — which is the only metric that matters." },
+  { author: "Ryan Mac", role: "CEO", org: "Speed Shopper App", url: "https://speedshopperapp.com", body: "Turned a rough idea into a finished mobile app that just works. Responsive, thorough, and kept the scope honest. Speed Shopper wouldn't exist without this work." },
+];
+
 const jsonLd = [
   {
     "@context": "https://schema.org",
@@ -71,6 +81,29 @@ const jsonLd = [
       "LangChain", "AWS", "Google Cloud", "Docker", "Kubernetes",
       "Blockchain", "Solidity", "Web3",
     ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      bestRating: "5",
+      worstRating: "1",
+      reviewCount: String(clientReviews.length),
+    },
+    review: clientReviews.map((r) => ({
+      "@type": "Review",
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      author: {
+        "@type": "Person",
+        name: r.author,
+        jobTitle: r.role,
+        worksFor: { "@type": "Organization", name: r.org, url: r.url },
+      },
+      reviewBody: r.body,
+      itemReviewed: {
+        "@type": "ProfessionalService",
+        name: "Flowdesk",
+        url: "https://flowdesk.tech",
+      },
+    })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Software Development Services",
@@ -104,6 +137,18 @@ const jsonLd = [
     "@type": "WebSite",
     name: "Flowdesk",
     url: "https://flowdesk.tech",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: f.a.join(" "),
+      },
+    })),
   },
 ];
 
