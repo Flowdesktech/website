@@ -1,6 +1,8 @@
 import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
+const SITE_URL = "https://flowdesk.tech";
+
 const projects = [
   {
     name: "Firestudio",
@@ -12,6 +14,8 @@ const projects = [
     siteUrl: "https://firestudio.flowdesk.tech/",
     githubUrl: "https://github.com/Flowdesktech/firestudio",
     screenshot: "/images/firestudio.png",
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "Windows, macOS, Linux",
   },
   {
     name: "Flowdesk Invoice",
@@ -23,6 +27,34 @@ const projects = [
     siteUrl: "https://invoice.flowdesk.tech/",
     githubUrl: "https://github.com/Flowdesktech/invoice",
     screenshot: "/images/invoice.png",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+  },
+  {
+    name: "Snapboard",
+    tagline: "Privacy-First Screenshot & Screen Utility",
+    desc: "Open-source Windows capture toolkit — region, window, and scrolling capture, annotation, sensitive-data blur, OCR, color picker, and pixel ruler. 100% offline, no telemetry, no cloud uploads. A modern alternative to Lightshot and ShareX.",
+    category: "Desktop App",
+    categoryColor: "sky" as const,
+    tags: ["C#", "WPF", ".NET 10", "Windows"],
+    siteUrl: "https://snapboard.flowdesk.tech/",
+    githubUrl: "https://github.com/Flowdesktech/snapboard",
+    screenshot: "/images/snapboard.png",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Windows 10, Windows 11",
+  },
+  {
+    name: "Flowvault",
+    tagline: "Zero-Knowledge Encrypted Notepad with Plausible Deniability",
+    desc: "Open-source end-to-end encrypted notepad. Argon2id + AES-256-GCM in the browser, fixed-size hidden-volume vaults where one URL hides multiple notebooks behind different passwords, drand-backed time-locked notes, self-destructing Encrypted Send links, and a dead-man's switch. A modern, auditable upgrade over ProtectedText — no accounts, no tracking, no telemetry.",
+    category: "Open Source",
+    categoryColor: "rose" as const,
+    tags: ["Next.js", "Firebase", "Argon2id", "AES-GCM", "tlock"],
+    siteUrl: "https://flowvault.flowdesk.tech/",
+    githubUrl: "https://github.com/Flowdesktech/flowvault",
+    screenshot: "/images/flowvault.png",
+    applicationCategory: "SecurityApplication",
+    operatingSystem: "Web",
   },
   {
     name: "Flowdesk HN",
@@ -34,8 +66,46 @@ const projects = [
     siteUrl: "https://new.flowdesk.tech/",
     githubUrl: "https://github.com/Flowdesktech/hackernews",
     screenshot: "/images/hackernews.png",
+    applicationCategory: "NewsApplication",
+    operatingSystem: "Web",
   },
 ];
+
+const portfolioJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Flowdesk Portfolio",
+  description:
+    "Production applications designed, developed, and deployed by Flowdesk using AI-powered workflows.",
+  url: `${SITE_URL}/#portfolio`,
+  numberOfItems: projects.length,
+  itemListOrder: "https://schema.org/ItemListOrderDescending",
+  itemListElement: projects.map((p, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "SoftwareApplication",
+      name: p.name,
+      description: p.desc,
+      url: p.siteUrl,
+      image: `${SITE_URL}${p.screenshot}`,
+      applicationCategory: p.applicationCategory,
+      operatingSystem: p.operatingSystem,
+      author: {
+        "@type": "Organization",
+        name: "Flowdesk",
+        url: SITE_URL,
+      },
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      keywords: p.tags.join(", "),
+      sameAs: [p.githubUrl],
+    },
+  })),
+};
 
 const colorMap = {
   emerald: {
@@ -49,6 +119,14 @@ const colorMap = {
   amber: {
     badge: "text-amber-400 bg-amber-500/10 border-amber-500/20",
     line: "bg-amber-500",
+  },
+  sky: {
+    badge: "text-sky-400 bg-sky-500/10 border-sky-500/20",
+    line: "bg-sky-500",
+  },
+  rose: {
+    badge: "text-rose-400 bg-rose-500/10 border-rose-500/20",
+    line: "bg-rose-500",
   },
 };
 
@@ -154,6 +232,10 @@ function ProjectCard({ project: p, index }: { project: (typeof projects)[number]
 export default function Portfolio() {
   return (
     <section className="py-28 lg:py-36 bg-gray-950 relative overflow-hidden" id="portfolio">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioJsonLd) }}
+      />
 
       <div className="relative max-w-[1200px] mx-auto px-6">
         {/* Section header - left aligned */}

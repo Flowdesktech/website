@@ -27,6 +27,13 @@ export const faqs: FaqItem[] = [
     ],
   },
   {
+    q: "Do you build privacy-first or zero-knowledge applications?",
+    a: [
+      "Yes — it's a specialty. I've shipped end-to-end encrypted products where the server is deliberately blind to user data, including Flowvault, an open-source zero-knowledge encrypted notepad with plausible deniability, drand-backed time-locked notes, self-destructing Encrypted Send links, and a dead-man's switch.",
+      "In practice that means browser-side cryptography (Argon2id for password-to-key derivation, AES-256-GCM for authenticated encryption, WebCrypto throughout), hidden-volume formats, auditable Firestore security rules, and a clear, published threat model. If you're building something where user data must never be readable by your own servers — password managers, encrypted notes, secure messaging, health or legal tools — I can take it from threat model through production.",
+    ],
+  },
+  {
     q: "How do you use AI in your workflow?",
     a: [
       "Two ways. First, as a daily tool — I use it constantly to scaffold code, rewrite things, and sanity-check my thinking. It makes me faster, but I don't trust its output blindly, especially on anything security-sensitive.",

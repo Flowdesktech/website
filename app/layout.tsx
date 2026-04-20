@@ -24,6 +24,11 @@ export const metadata: Metadata = {
     "custom software",
     "freelance developer",
     "Flowdesk",
+    "zero-knowledge app developer",
+    "end-to-end encryption developer",
+    "privacy-first software",
+    "encrypted notepad",
+    "Flowvault",
   ],
   authors: [{ name: "Flowdesk" }],
   robots: {
@@ -80,6 +85,8 @@ const jsonLd = [
       "React Native", "Flutter", "Python", "Machine Learning", "OpenAI",
       "LangChain", "AWS", "Google Cloud", "Docker", "Kubernetes",
       "Blockchain", "Solidity", "Web3",
+      "End-to-End Encryption", "Zero-Knowledge Applications", "WebCrypto",
+      "Argon2id", "AES-GCM", "Cryptography", "Privacy Engineering",
     ],
     aggregateRating: {
       "@type": "AggregateRating",
