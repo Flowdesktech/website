@@ -105,11 +105,6 @@ const jsonLd = [
         worksFor: { "@type": "Organization", name: r.org, url: r.url },
       },
       reviewBody: r.body,
-      itemReviewed: {
-        "@type": "ProfessionalService",
-        name: "Flowdesk",
-        url: "https://flowdesk.tech",
-      },
     })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
