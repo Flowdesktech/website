@@ -50,7 +50,7 @@ const projects = [
     category: "Open Source",
     categoryColor: "rose" as const,
     tags: ["Next.js", "Firebase", "Argon2id", "AES-GCM", "tlock"],
-    siteUrl: "https://flowvault.flowdesk.tech/",
+    siteUrl: "https://useflowvault.com/",
     githubUrl: "https://github.com/Flowdesktech/flowvault",
     screenshot: "/images/flowvault.png",
     applicationCategory: "SecurityApplication",
