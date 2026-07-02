@@ -44,6 +44,19 @@ const projects = [
     operatingSystem: "Windows 10, Windows 11",
   },
   {
+    name: "Stablon",
+    tagline: "Stablecoin Banking with Global USD & EUR Accounts",
+    desc: "Full-stack stablecoin banking platform — deposit fiat or crypto, hold balances in virtual USD/EUR accounts with local rails (ACH, Wire, SEPA), spend at 200M+ merchants with a Visa card, swap instantly, and earn up to 5% APY. Built on Bridge.xyz with Firebase Auth, TOTP 2FA, AES-256-GCM encrypted secrets, KYC-gated server routes, and idempotent money movement.",
+    category: "Fintech",
+    categoryColor: "cyan" as const,
+    tags: ["Next.js 16", "TypeScript", "Firebase", "Bridge.xyz", "TOTP 2FA"],
+    siteUrl: "https://stablon.flowdesk.tech/",
+    githubUrl: "https://github.com/Flowdesktech/stablon",
+    screenshot: "/images/stablon.png",
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "Web",
+  },
+  {
     name: "Flowvault",
     tagline: "Zero-Knowledge Encrypted Notepad with Plausible Deniability",
     desc: "Open-source end-to-end encrypted notepad. Argon2id + AES-256-GCM in the browser, fixed-size hidden-volume vaults where one URL hides multiple notebooks behind different passwords, drand-backed time-locked notes, self-destructing Encrypted Send links, and a dead-man's switch. A modern, auditable upgrade over ProtectedText — no accounts, no tracking, no telemetry.",
@@ -127,6 +140,10 @@ const colorMap = {
   rose: {
     badge: "text-rose-400 bg-rose-500/10 border-rose-500/20",
     line: "bg-rose-500",
+  },
+  cyan: {
+    badge: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
+    line: "bg-cyan-500",
   },
 };
 
