@@ -50,7 +50,7 @@ const projects = [
     category: "Fintech",
     categoryColor: "cyan" as const,
     tags: ["Next.js 16", "TypeScript", "Firebase", "Bridge.xyz", "TOTP 2FA"],
-    siteUrl: "https://stablon.flowdesk.tech/",
+    siteUrl: "https://stablon.app/",
     githubUrl: "https://github.com/Flowdesktech/stablon",
     screenshot: "/images/stablon.png",
     applicationCategory: "FinanceApplication",
